@@ -17,7 +17,34 @@ class SiteController extends Controller {
 
         // try to load by HTML form
         if ($user->load(App::$current->request->post())) {
-            // processing of loaded User model
+            $check = User::findOne(['login' => $_POST['User']['login']]);
+            if ($check->password === $user->password) {
+                $_SESSION['u_id'] = $check->id;
+                $_SESSION['u_login'] = $check->login;
+                echo 'You are logged in!';
+                print_r($_SESSION);
+            } else {
+                echo 'You are NOT logged in!';
+            }
+        }
+
+        if (isset($_POST['logout'])) {
+            session_start();
+            session_unset();
+            session_destroy();
+            echo 'You are logged out!';
+            print_r($_SESSION);
+        }
+
+        if (isset($_POST['signup'])) {
+            var_dump($_POST['User']['login']);
+            var_dump($user->login);
+            $check = User::findOne(['login' => $_POST['User']['login']]);
+            if (!$check) {
+                $user->save();
+            } else {
+                echo 'Username exists!';
+            }
         }
 
         // render Twig template or JSON (with AJAX checking by Controller)
