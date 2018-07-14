@@ -8,3 +8,4 @@ use system\components\ActiveRecord;
 class Page extends ActiveRecord {
 
 }
+

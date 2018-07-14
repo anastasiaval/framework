@@ -1,15 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 13.07.2018
- * Time: 21:19
- */
 
 namespace app\frontend\models;
 
+use system\components\ActiveRecord;
 
-class Page
-{
+class Page extends ActiveRecord {
 
 }
+
