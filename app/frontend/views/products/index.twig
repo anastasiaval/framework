@@ -1,0 +1,12 @@
+<h1>Products</h1>
+
+<ul>
+    {%  for product in products %}
+        <li><a href="/products/view?id={{ product.id }}">{{ product.name }}
+                <p>{{ product.price }} руб.</p>
+                <img class="product__preview-img" src="/img/{{ product.img }}.jpg" alt="{{ product.name }}">
+            </a></li>
+        <button class="product__buy-button">Add to cart</button>
+    {% endfor %}
+</ul>
+
