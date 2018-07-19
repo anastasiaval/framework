@@ -2,6 +2,11 @@
     "name": "manchenkov/framework",
     "description": "GeekBrains MVC app template",
     "type": "project",
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
     "require": {
         "twig/twig": "^2.4"
     },
@@ -11,5 +16,8 @@
             "name": "Artyom Manchenkov",
             "email": "artyom@manchenkoff.me"
         }
-    ]
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "6"
+    }
 }
